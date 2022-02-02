@@ -1,0 +1,24 @@
+{
+	"folders": [],
+	"settings": {
+		"files.associations": {
+			"random": "cpp",
+			"*.tcc": "cpp",
+			"list": "cpp",
+			"string": "cpp",
+			"unordered_map": "cpp",
+			"vector": "cpp",
+			"regex": "cpp",
+			"array": "cpp",
+			"deque": "cpp",
+			"memory": "cpp",
+			"initializer_list": "cpp",
+			"functional": "cpp",
+			"bitset": "cpp",
+			"string_view": "cpp",
+			"xhash": "cpp",
+			"xstring": "cpp",
+			"xutility": "cpp"
+		}
+	}
+}
