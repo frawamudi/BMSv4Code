@@ -90,7 +90,6 @@ public:
         uint32_t *value,
         uint32_t *hysteresisvalue,
         bool emergencyStop,
-        uint16_t mins);
+        uint16_t mins, ControllerState controlstate);
 };
-
 #endif

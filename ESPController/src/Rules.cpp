@@ -149,7 +149,7 @@ void Rules::RunRules(
     uint32_t *value,
     uint32_t *hysteresisvalue,
     bool emergencyStop,
-    uint16_t mins)
+    uint16_t mins, ControllerState controlstate)
 {
     //Emergency stop signal...
     rule_outcome[Rule::EmergencyStop] = emergencyStop;
@@ -285,14 +285,15 @@ void Rules::RunRules(
         rule_outcome[Rule::PackOverVoltage] = false;
     }
 
-    if (lowestPackVoltage < value[Rule::PackUnderVoltage] && rule_outcome[Rule::PackUnderVoltage] == false)
+    if (lowestPackVoltage < value[Rule::PackUnderVoltage] && rule_outcome[Rule::PackUnderVoltage] == false && ( controlstate == ControllerState::Running))
     {
         //Rule - Pack under voltage (mV)
         rule_outcome[Rule::PackUnderVoltage] = true;
     }
-    else if (lowestPackVoltage > hysteresisvalue[Rule::PackUnderVoltage] && rule_outcome[Rule::PackUnderVoltage] == true)
+    else if (lowestPackVoltage > hysteresisvalue[Rule::PackUnderVoltage] && rule_outcome[Rule::PackUnderVoltage] == true && (controlstate == ControllerState::Running))
     {
-        //Rule - Pack under voltage (mV) - HYSTERESIS RESET
+        //rule - pack under voltage (mv) - hysteresis reset
         rule_outcome[Rule::PackUnderVoltage] = false;
     }
+
 }

@@ -464,7 +464,7 @@ void ProcessRules()
       mysettings.rulevalue,
       mysettings.rulehysteresis,
       emergencyStop,
-      minutesSinceMidnight());
+      minutesSinceMidnight(), ControlState);
 
   if (ControlState == ControllerState::Stabilizing)
   {
